@@ -1,0 +1,468 @@
+/*文字コードの設定*/
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('http://fonts.googleapis.com/earlyaccess/mplus1p.css');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*フォントを設定*/
+/* スクロール禁止時間を設定 */
+body {
+    font-family: 'Roboto', 'M PLUS 1p', sans-serif;
+    /* animation: DisableScroll .1s linear 2.8s both; */
+}
+
+/*図形について*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*
+.headerbackground {
+    background: linear-gradient(#333 0%,#333 50%,rgb(243, 243, 243) 50%,rgb(243, 243, 243) 100%);
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+*/
+
+/* ヘッダーの詳細を記述 */
+.header_top {
+    /* 背景色を指定 */
+    background: #5c97b7;
+    /* 高さをデバイスの表示枠の55%に指定(本来％は親要素の割合を示す) */
+    height: 55%;
+    width: 100%;
+    /* 絶対配置ができるように設定 しかしここに記述する意味は分からない */
+    position: absolute;
+    /* 要素が重なっているときのレイヤを指定する 数字が大きいほど手前に表示される */
+    z-index: 1;
+}
+
+/* ヘッダーの中に配置した画像に対して詳細を記述 */
+/* remはルート要素のフォントサイズを基準とする単位
+何も指定しない場合は16pxを意味するが、rootで20pxを指定していた場合は1remが20pxになる */
+.innerimage {
+    /* width: 320px; */
+    width: 50%;
+    /* margin: 10px auto 0; */
+    /* 要素の位置を調整して上下左右中央ぞろえにする */
+    /* top と left に 50% を指定して、要素の左上を中央にする. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* tarnslate で要素の縦横それぞれ50%分の長さを動かすことで、要素を中央にする. */
+    transform: translate(-50%, -50%);
+}
+
+.katuo {
+    width: 100%;
+}
+
+.about {
+    margin-top: 100%;
+    /* 背景色を指定 */
+    background: #b7935c;
+    /* 高さをデバイスの表示枠の55%に指定(本来％は親要素の割合を示す) */
+    height: 55%;
+    width: 20%;
+}
+
+/* ナビゲーションのポジションを絶対にして重ねる */
+/* nav {
+    position: absolute;
+    z-index: 3;
+} */
+
+
+/* ナビゲーションの詳細を設定する */
+/* header nav .nav_menue {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 25px;
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+} */
+
+/* ナビゲーションのクラスが追加されたら時の設定 = スクロール時の設定 */
+/* header nav .active {
+    opacity: .6;
+    visibility: visible;
+    transform: none;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: #fff;
+} */
+
+/* header nav a {
+    color: #333;
+} */
+
+li {
+    margin-right: 25px;
+}
+/* aタグで色を設定するとリンクによる強制デコレーションでのカラー変更を無視することができる */
+/* text-decorationで下線部を消す */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+/*画面後半*/
+#bottombackgroud {
+    background: rgb(235, 238, 231) ;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+/* imgの大きさをいい具合に調整 */
+/* トランジション時間を設定 */
+/* vertical-aligntopで下の隙間をなくした */
+/* img {
+    width: 40vh;
+    height: auto;
+    transition-duration: 0.5s;
+    vertical-align:top;
+} */
+
+.topimages {
+    position: relative;
+    text-align:center;
+}
+
+.bottomimages {
+    position: relative;
+    width: 100%;
+}
+
+/* liの.toplinkを横並びに設定 */
+/* 拡大したときに形をはみ出さないようにoverflowを設定 */
+.sitecontents .linkimage {
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    overflow: hidden;
+}
+
+/* 写真内の文字とアイコンを設定 */
+.sitecontents .linkimage p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    top: 30%;
+    left: 10%;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.sitecontents .linkimage p .fab {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+.sitecontents .linkimage p .fas {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+.sitecontents .linkimage p .far {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+
+.sitecontents .linkimage .caption {
+	font-size:		130%;
+	color:			#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.sitecontents .linkimage .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;
+	background-color:	rgba(255, 255, 255, 0.801);
+	/* -webkit-transition:	all 0.6s ease; */
+	transition:		all 0.6s ease;
+}
+
+/* 画像がマウスホバー状態の時 */
+.sitecontents .linkimage:hover img {
+    transform: scale(1.2) rotate(3deg);
+    transition-duration: 0.5s;
+}
+
+/* 画像マウスホバー状態のマスク画像のアクション */
+.sitecontents .linkimage .mask:hover {
+    opacity: 1;
+}
+
+/* ul要素を中央揃え */
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* アニメーションを定義 */
+/* 上から文字が出てくるアニメーション */
+@keyframes ShowTextFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* 下から文字が出てくるアニメーション */
+@keyframes ShowTextFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* ローワーサード */
+@keyframes ShowTextLowerThird {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+/* スクロール禁止 */
+@keyframes DisableScroll {
+    from {
+        overflow: hidden;
+    }
+    to {
+        overflow: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
+
+/*========= ボタンのためのCSS ===============*/
+
+/*ボタン全体の形状*/
+.openbtn{
+    /*はじめは非表示に*/
+	display: none;
+    /*ボタンの位置*/
+	position:fixed;
+	top:10px;
+	right: 10px;
+	z-index: 999;
+    /*ボタンの形状*/
+	background:#666;
+	cursor: pointer;
+    width: 50px;
+    height:50px;
+	border-radius: 5px;
+}
+
+/*ボタンのアイコン設定*/
+.openbtn span{
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+	background-color: #fff;
+  	width: 45%;
+  }
+
+.openbtn span:nth-of-type(1) {
+	top:15px;
+}
+
+.openbtn span:nth-of-type(2) {
+	top:23px;
+}
+
+.openbtn span:nth-of-type(3) {
+	top:31px;
+}
+
+/*activeクラスが付与された後のボタンのアイコン設定*/
+.openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+}
+
+.openbtn.active span:nth-of-type(2) {
+	opacity: 0;
+}
+
+.openbtn.active span:nth-of-type(3){
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+}
+
+/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
+.fadeDown {
+    animation-name: fadeDownAnime;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    display: block;
+}
+@keyframes fadeDownAnime{
+  from {
+    opacity: 0;
+	transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+
+/*========= ヘッダーナビゲーションのためのCSS ===============*/
+
+/*==ヘッダーの形状*/
+#header{
+	height: 70px;
+	width:100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background:#333;
+	color:#fff;
+	text-align: center;
+	padding: 20px;
+}
+
+/*.doneクラスがついたヘッダー*/
+#header.dnone {
+	opacity: 0;/*透過0にして非表示に*/
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたら*/
+#header.dnone.panelactive {
+	opacity: 1;/*不透明にして出現*/
+}
+
+
+/*==ヘッダーのテキストナビゲーションの形状*/
+#g-navi ul{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+#g-navi ul li a{
+	display: block;
+	text-decoration: none;
+	color: #666;
+	padding:10px;
+}
+
+#g-navi ul li.current a,
+#g-navi ul li a:hover{
+	color:#fff;
+}
+
+/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
+#header.dnone #g-navi{
+    /*固定位置にして最背面に*/
+    position:fixed;
+	top: 0;
+    left: 0;
+	z-index: -1;
+    /*高さと幅*/
+	width:100%;
+	height: 100vh;
+    /*天地中央＆テキスト中央揃え*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+    /*はじめは透過0に*/
+    opacity: 0;
+	transition: all 0.4s;
+}
+
+/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
+#header.dnone.panelactive #g-navi{
+	opacity: 1;/*不透明に*/
+	z-index:3;/*最前面に*/
+	background:#eee;
+}
+
+#header.dnone.panelactive #g-navi ul{
+	display:block;/*flexの横並びをblockにして縦並びに*/
+}
+
+
+/*リストの形状*/
+
+#header.dnone.panelactive #g-navi li a{
+	color: #333;
+	text-decoration: none;
+	padding:10px;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: bold;
+	transition:all 0.3s;
+}
+
+/* 以下は検証用のレイアウトのための CSS*/
+section{
+  padding:300px 0;
+}

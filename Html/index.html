@@ -23,7 +23,7 @@
     <!-- これによってマウスオーバーメニューやハンバーガメニューを簡単に実装できるようになる -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <!-- 独自のcssファイルを読み込む -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="..\css\style.css">
     <!-- 独自のjavascriptファイルを読み込む -->
     <script src="script.js" defer></script>
     <!-- ここでJavaScriptを実行しないと、読み込み時にtransitionが動いてしまった -->
@@ -46,19 +46,33 @@
                     <li><a href="works.html">WORKS</a></li>
                 </ul>
             </nav> -->
-            <!-- ヘッダーの中にdivでTOP画面を作成する -->
-            <!-- divはhtmlのコード範囲を定義するタグ -->
-            <!-- classはdivを判断するためにdivに対して付与する識別名のようなものである -->
-            <div class="header_top">
-                <div class="header_top_left">
-                    <a href="index.html">
-                        <!-- 画像のパスは親フォルダを起点とするのではなく、現在のファイルを起点とするため..\でディレクトリを移動する -->
-                        <img src="..\img\logo.png" alt="logo">
-                    </a>
-                </div>
-            </div>
+            <nav id="g-navi">
+                <ul>
+                <li><a href="#area-1">HOME</a></li>
+                <li><a href="#area-2">VIDEO</a></li>
+                <!-- <li><a href="#area-3">Area3</a></li> -->
+                </ul>
+            </nav>
         </header>
+        <!-- ハンバーガーメニュー -->
+        <!-- openbtn で枠の設定を記述 -->
+        <!-- openbtn 内の span でハンバーガーになるようにデザインを記述 -->
+        <div class="openbtn"><span></span><span></span><span></span></div>
         <!-- ヘッダー終わり -->
+        <!-- ヘッダーの中にdivでTOP画面を作成する -->
+        <!-- divはhtmlのコード範囲を定義するタグ -->
+        <!-- classはdivを判断するためにdivに対して付与する識別名のようなものである -->
+        <div class="header_top">
+            <div class="innerimage">
+                <a href="index.html">
+                    <!-- 画像のパスは親フォルダを起点とするのではなく、現在のファイルを起点とするため..\でディレクトリを移動する -->
+                    <img src="..\img\logo.png" alt="logo" class="katuo">
+                </a>
+            </div>
+        </div>
+        <div class="about">
+            <img src="..\img\logo.png" alt="logo" class="katuo">
+        </div>
         <!-- Aboutゾーン記述 -->
         <!-- Aboutゾーン終わり -->
         <!-- Contentsゾーン記述 -->
@@ -85,5 +99,8 @@
             </div>
         </div> -->
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!--自作のJS-->
+    <script src="../javascript/5-1-7.js"></script>
 </body>
 </html>
