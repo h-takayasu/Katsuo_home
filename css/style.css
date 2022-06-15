@@ -28,6 +28,10 @@ body {
 }
 */
 
+.background {
+    display: block;
+}
+
 /* ヘッダーの詳細を記述 */
 .header_top {
     /* 背景色を指定 */
@@ -38,7 +42,7 @@ body {
     /* 絶対配置ができるように設定 しかしここに記述する意味は分からない */
     position: absolute;
     /* 要素が重なっているときのレイヤを指定する 数字が大きいほど手前に表示される */
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 /* ヘッダーの中に配置した画像に対して詳細を記述 */
@@ -57,17 +61,48 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.katuo {
+.innerimage .katuo {
     width: 100%;
 }
 
-.about {
-    margin-top: 100%;
-    /* 背景色を指定 */
-    background: #b7935c;
-    /* 高さをデバイスの表示枠の55%に指定(本来％は親要素の割合を示す) */
-    height: 55%;
-    width: 20%;
+/* サイトヘッダー以降のメインコンテンツ */
+.site-contents {
+    background: #f9fcfd;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 55%;
+}
+
+/* 大見出しh2のcss */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 0;
+    letter-spacing: 0.5em; /*文字の間隔 em=文字の高さという単位だと相対的な比率が使用可能*/
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+    margin-top: 3%;
+    margin-left: 3%;
+    padding: 0;
+}
+
+h4 {
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+    margin-top: 1%;
+    margin-left: 3%;
+    line-height: 2em
 }
 
 /* ナビゲーションのポジションを絶対にして重ねる */
@@ -138,104 +173,9 @@ a {
     vertical-align:top;
 } */
 
-.topimages {
-    position: relative;
-    text-align:center;
-}
-
-.bottomimages {
-    position: relative;
-    width: 100%;
-}
-
-/* liの.toplinkを横並びに設定 */
-/* 拡大したときに形をはみ出さないようにoverflowを設定 */
-.sitecontents .linkimage {
-    position: relative;
-    float: left;
-    margin-left: 5%;
-    margin-top: 5%;
-    overflow: hidden;
-}
-
-/* 写真内の文字とアイコンを設定 */
-.sitecontents .linkimage p {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-size: 20px;
-    text-align: center;
-    top: 30%;
-    left: 10%;
-    text-shadow: 1px 2px 3px #333;
-}
-
-.sitecontents .linkimage p .fab {
-    display: block;
-    padding-bottom: 10px;
-    font-size: 3em;
-    color: rgba(172, 168, 168, 0.7);
-}
-.sitecontents .linkimage p .fas {
-    display: block;
-    padding-bottom: 10px;
-    font-size: 3em;
-    color: rgba(172, 168, 168, 0.7);
-}
-.sitecontents .linkimage p .far {
-    display: block;
-    padding-bottom: 10px;
-    font-size: 3em;
-    color: rgba(172, 168, 168, 0.7);
-}
-
-.sitecontents .linkimage .caption {
-	font-size:		130%;
-	color:			#fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30%;
-    text-shadow: 1px 2px 3px #333;
-}
-
-.sitecontents .linkimage .mask {
-	width:			100%;
-	height:			100%;
-	position:		absolute;
-	top:			0;
-	left:			0;
-	opacity:		0;
-	background-color:	rgba(255, 255, 255, 0.801);
-	/* -webkit-transition:	all 0.6s ease; */
-	transition:		all 0.6s ease;
-}
-
-/* 画像がマウスホバー状態の時 */
-.sitecontents .linkimage:hover img {
-    transform: scale(1.2) rotate(3deg);
-    transition-duration: 0.5s;
-}
-
-/* 画像マウスホバー状態のマスク画像のアクション */
-.sitecontents .linkimage .mask:hover {
-    opacity: 1;
-}
-
-/* ul要素を中央揃え */
-ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 /* アニメーションを定義 */
 /* 上から文字が出てくるアニメーション */
-@keyframes ShowTextFromTop {
+/* @keyframes ShowTextFromTop {
     0% {
         opacity: 0;
         transform: translateY(30px);
@@ -244,9 +184,9 @@ ul {
         opacity: 1;
         transform: translateY(0px);
     }
-}
+} */
 /* 下から文字が出てくるアニメーション */
-@keyframes ShowTextFromBottom {
+/* @keyframes ShowTextFromBottom {
     from {
         opacity: 0;
         transform: translateY(-30px);
@@ -255,25 +195,25 @@ ul {
         opacity: 1;
         transform: translateY(0px);
     }
-}
+} */
 /* ローワーサード */
-@keyframes ShowTextLowerThird {
+/* @keyframes ShowTextLowerThird {
     from {
         transform: translateY(100%);
     }
     to {
         transform: translateY(0px);
     }
-}
+} */
 /* スクロール禁止 */
-@keyframes DisableScroll {
+/* @keyframes DisableScroll {
     from {
         overflow: hidden;
     }
     to {
         overflow: auto;
     }
-}
+} */
 
 
 
@@ -448,6 +388,56 @@ ul {
 	display:block;/*flexの横並びをblockにして縦並びに*/
 }
 
+/* フッター全体の詳細 */
+#footer {
+    background:#333;
+    /* position: absolute; */
+    width: 100%;
+    height: 30%;
+    position: absolute;
+    top: 150%;
+}
+
+.footer_container {
+    display: flex;        /* display=flexにすると本来Blockで縦に並ぶ要素が横並びになる */
+}
+
+/* 画像を中央ぞろえするためには画像のクラスではなく、画像の親divに対してtext-align: centerを設定する必要がある。 */
+.bottom_image {
+    text-align: center;
+}
+
+/* フッター内の画像の詳細 */
+footer img {
+    margin-top: 5%;
+    width: 60%;
+    height: 100%;
+}
+
+/* コピーライトの詳細 */
+small{
+    color:rgb(212, 212, 212);
+    display: block;
+    text-align: left;
+    padding:2em;
+}
+
+footer .left_contents {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+/* 既存の要素の右に重ならないように配置する */
+footer .bottom_text{
+    color: rgb(212, 212, 212);
+    padding: 1em;
+    width: 50%;
+    /* 左端に配置 */
+    text-align: left;
+    margin-top: 2.8em;
+}
 
 /*リストの形状*/
 
