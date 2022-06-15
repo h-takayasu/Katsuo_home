@@ -28,8 +28,10 @@ body {
 }
 */
 
+/* 全体の背景の設定　色を指定 */
 .background {
     display: block;
+    background: #f9fcfd;
 }
 
 /* ヘッダーの詳細を記述 */
@@ -37,41 +39,43 @@ body {
     /* 背景色を指定 */
     background: #5c97b7;
     /* 高さをデバイスの表示枠の55%に指定(本来％は親要素の割合を示す) */
-    height: 55%;
+    height: 70%;
     width: 100%;
     /* 絶対配置ができるように設定 しかしここに記述する意味は分からない */
-    position: absolute;
+    display: block;
     /* 要素が重なっているときのレイヤを指定する 数字が大きいほど手前に表示される */
     /* z-index: 1; */
 }
 
 /* ヘッダーの中に配置した画像に対して詳細を記述 */
-/* remはルート要素のフォントサイズを基準とする単位
-何も指定しない場合は16pxを意味するが、rootで20pxを指定していた場合は1remが20pxになる */
+/* div内の画像を中央ぞろえするために子要素 aに対して中央ぞろえのcssを記述 */
 .innerimage {
-    /* width: 320px; */
-    width: 50%;
-    /* margin: 10px auto 0; */
-    /* 要素の位置を調整して上下左右中央ぞろえにする */
-    /* top と left に 50% を指定して、要素の左上を中央にする. */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    /* tarnslate で要素の縦横それぞれ50%分の長さを動かすことで、要素を中央にする. */
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.innerimage .katuo {
-    width: 100%;
+/* div内の画像を中央ぞろえするために子要素 aに対して中央ぞろえのcssを記述 */
+.innerimage a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.innerimage img {
+    width: 70%;
 }
 
 /* サイトヘッダー以降のメインコンテンツ */
 .site-contents {
     background: #f9fcfd;
     width: 100%;
-    height: 150%;
-    position: absolute;
-    top: 55%;
+    height: auto;
+    display: block;
 }
 
 /* 大見出しh2のcss */
@@ -121,6 +125,32 @@ h4 {
 .contents_video img {
     width: 100%;
     height: 100%;
+}
+
+.membersimages {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+/* 箇条書きに使うタグulの黒丸を消す */
+ul {
+    list-style: none;   /* 箇条書きに使うタグulの黒丸を消す */
+    display: flex;
+}
+
+.mens img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    margin-left: 10%;
+    filter: drop-shadow(0 0 10px rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
+}
+
+.marginspace {
+    display: block;
+    background: #f9fcfd;
+    height: 5rem;
 }
 
 /* ナビゲーションのポジションを絶対にして重ねる */
@@ -409,10 +439,9 @@ a {
 /* フッター全体の詳細 */
 #footer {
     background:#333;
-    /* position: absolute; */
     width: 100%;
     height: 30%;
-    position: absolute;
+    position: block;
     top: 200%;
 }
 
