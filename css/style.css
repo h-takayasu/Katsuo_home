@@ -136,9 +136,10 @@ h4 {
 /* 箇条書きに使うタグulの黒丸を消す */
 ul {
     list-style: none;   /* 箇条書きに使うタグulの黒丸を消す */
-    display: flex;
+    display: flex;      /* flexを使うと横並びになる */
 }
 
+/* メンバーズに表示する画像 */
 .mens img {
     display: flex;
     width: 100%;
@@ -146,6 +147,14 @@ ul {
     margin-left: 10%;
     filter: drop-shadow(0 0 10px rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
 }
+
+/* # 画像の下に配置する名前のテキスト */
+.mens p {
+    text-align: center; /* テキストを中央に配置 */
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
 
 .marginspace {
     display: block;
