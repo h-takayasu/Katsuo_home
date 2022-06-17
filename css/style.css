@@ -145,7 +145,7 @@ ul {
     width: 100%;
     height: auto;
     /* margin-left: 10%; */
-    filter: drop-shadow(0 0 10px rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
+    filter: drop-shadow(0 0 1vw rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
 }
 figure.hover-parent {
     width: 100%;
