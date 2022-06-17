@@ -1,0 +1,225 @@
+/*文字コードの設定*/
+@charset "UTF-8";
+@import url('https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp.min.css');
+
+html { scroll-behavior: smooth;}
+
+/* .story {
+  content-visibility: auto;
+  contain-intrinsic-size: 100px 1000px;
+} */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*フォントを設定*/
+/* スクロール禁止時間を設定 */
+body {
+    font-family: YakuHanJP, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
+    animation: DisableScroll .1s linear 2.8s both;
+}
+
+/*図形について*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ナビゲーションのポジションを絶対にして重ねる */
+nav {
+    position: absolute;
+    z-index: 3;
+}
+
+/* ナビゲーションの詳細を設定する */
+header nav .nav_menue {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;          
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 25px;
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+header nav .active {
+    opacity: .6;
+    visibility: visible;
+    transform: none;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: #fff;
+}
+
+header nav a {
+    color: #333;
+}
+
+li {
+    margin-right: 25px;
+}
+/* aタグで色を設定するとリンクによる強制デコレーションでのカラー変更を無視することができる */
+/* text-decorationで下線部を消す */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ******************************************************** */
+
+/* アニメーション終了時に最後の@keyframesの「100%(to)」のスタイルが適用 */
+.introduction {
+    animation: fadein 3s forwards;
+}
+
+/* .introsentence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+} */
+
+.introsentence h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    font-size: 5vh;
+    font-weight: bold;
+    color: #333;   
+}
+
+.introsentence p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vh;
+}
+
+.introsentence p:first-of-type {
+    margin-top: 5vh;
+}
+
+/* *********************************************************** */
+/* 各メンバーの紹介位置にジャンプするための目次アイコン */
+.contents li {
+    margin-top: 4vh;
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    /* margin-left: 5%;
+    margin-top: 5%; */
+}
+
+.intro img {
+    width: 20vh;
+    clip-path: circle(65px at 50% 50%);
+}
+
+.introimages ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro img:hover {
+    opacity: 0.8;
+}
+
+/* **************************************************************** */
+/* 紹介ゾーン */
+.introcontents {
+    position: relative;
+    margin-top: 5vh;
+}
+
+.introcontents .members {
+    position: relative;
+    /* width: 100vh; */
+    height: 100vh;
+}
+
+.introcontents .contentstext {
+    position: absolute;
+    margin-left: 4vh;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(50%);
+    visibility: hidden;
+    transition: .8s;
+}
+
+.introcontents .contentstext h1 {
+    font-size: 3vh;
+    margin-top: 3vh;
+    color: #0b318f;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgb(151, 151, 151);
+}
+.introcontents .contentstext h2 {
+    font-size: 2vh;
+    margin-top: 1vh;
+    color: #0b318f;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px rgb(151, 151, 151);
+}
+.introcontents .contentstext p {
+    margin-top: 2vh;
+    color: #333;
+    text-shadow: 1px 2px 3px rgb(230, 230, 230);
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.introcontents .contentstext.active {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+.contentsimage:nth-child(odd) {
+    transform: translateX(-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s;
+}
+
+.contentsimage:nth-child(even) {
+    transform: translateX(50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s;
+}
+
+/* 横長のメインイメージに透明度を設定する */
+.mainimage {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100% auto;
+    opacity: .6;
+}
+.subimage {
+    width: 30vh;
+    position: relative;
+    margin-left: 130vh;
+    margin-top: 50vh;
+    border-radius: 10px;
+}
+
+.contentsimage.active {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes fadein {
+	0% {opacity: 0}
+	100% {opacity: 1}
+}
