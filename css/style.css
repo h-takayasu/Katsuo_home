@@ -502,6 +502,7 @@ footer img {
 
 /* コピーライトの詳細 */
 small{
+    font-size: 1vw;
     color:rgb(212, 212, 212);
     display: block;
     text-align: left;
