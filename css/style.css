@@ -151,7 +151,6 @@ figure.hover-parent {
     width: 100%;
     height: auto;
     position: relative;
-    margin-bottom: 30px;
     overflow: hidden;
     }
 
@@ -169,7 +168,7 @@ figcaption.hover-mask {
     justify-content: center;
     align-items: center;
     /* text-align: center;     文字を中央に配置 */
-    padding: 30px;
+    /* padding: 30px; */
     z-index: 2;
     font-size: 2vw;
     }
