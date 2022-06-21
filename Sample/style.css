@@ -1,0 +1,333 @@
+/*文字コードの設定*/
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('http://fonts.googleapis.com/earlyaccess/mplus1p.css');
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*フォントを設定*/
+/* スクロール禁止時間を設定 */
+body {
+    font-family: 'Roboto', 'M PLUS 1p', sans-serif;
+    animation: DisableScroll .1s linear 2.8s both;
+}
+
+/*図形について*/
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*
+.headerbackground {
+    background: linear-gradient(#333 0%,#333 50%,rgb(243, 243, 243) 50%,rgb(243, 243, 243) 100%);
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+*/
+
+/*画面前半*/
+.headerbackground {
+    background: #333;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+/* ナビゲーションのポジションを絶対にして重ねる */
+nav {
+    position: absolute;
+    z-index: 3;
+}
+
+
+/* ナビゲーションの詳細を設定する */
+header nav .nav_menue {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;          
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 25px;
+    transform: translateY(-100%);
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+}
+
+/* ナビゲーションのクラスが追加されたら時の設定 = スクロール時の設定 */
+header nav .active {
+    opacity: .6;
+    visibility: visible;
+    transform: none;
+    box-shadow: 0 2px 2px #ccc;
+    background-color: #fff;
+}
+
+header nav a {
+    color: #333;
+}
+
+li {
+    margin-right: 25px;
+}
+/* aタグで色を設定するとリンクによる強制デコレーションでのカラー変更を無視することができる */
+/* text-decorationで下線部を消す */
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+/* 大きいテキストの詳細を設定する */
+.headertext {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    z-index: 2;
+}
+
+h2.groupname {
+    font-size: 70px;
+    color: #fff;
+}
+
+h2.presentedby {
+    margin-top: 10px;
+    font-size: 25px;
+    color: #fff;
+}
+
+/* ********************************************************************** */
+/* 画面中央 */
+/* divの高さに60vh autoを指定してウィンドウの拡大縮小に合わせる */
+#middlebackground {
+    position: relative;
+    height: 40vh auto;
+}
+
+/* 間の画像 */
+#middlebackground img {
+    width: 100%;
+    height: 100% auto;
+}
+
+#middlebackground .poetry {
+	writing-mode: vertical-lr;
+}
+
+#middlebackground p {
+    position: absolute;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 1s;
+    font-size: 4vh;
+    background: linear-gradient(to left, white 0% 70%, rgba(0,0,0,0) 70% 100%);
+}
+
+/* ポエムの位置を定義する transion-delayはHTMLに直接書き込む */
+#middlebackground p.t_1 {top: 10vh; left: 25vh;}
+#middlebackground p.t_2 {top: 13vh; left: 30vh;}
+#middlebackground p.t_3 {top: 10vh; left: 45vh;}
+#middlebackground p.t_4 {top: 13vh; left: 50vh;}
+#middlebackground p.t_5 {top: 10vh; left: 65vh;}
+#middlebackground p.t_6 {top: 13vh; left: 70vh;}
+#middlebackground p.t_7 {top: 10vh; left: 85vh;}
+#middlebackground p.t_8 {top: 13vh; left: 90vh;}
+#middlebackground p.t_9 {top: 10vh; left: 95vh;}
+#middlebackground p.t_10 {top: 17vh; left:110vh;}
+
+#middlebackground p.active {
+    visibility: visible;
+    transform: none;
+    opacity: 1;
+}
+
+/* *********************************************************************** */
+
+/*画面後半*/
+#bottombackgroud {
+    background: rgb(235, 238, 231) ;
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+/* imgの大きさをいい具合に調整 */
+/* トランジション時間を設定 */
+/* vertical-aligntopで下の隙間をなくした */
+img {
+    width: 40vh;
+    height: auto;
+    transition-duration: 0.5s;
+    vertical-align:top;
+}
+
+.topimages {
+    position: relative;
+    text-align:center;
+}
+
+.bottomimages {
+    position: relative;
+    width: 100%;
+}
+
+/* liの.toplinkを横並びに設定 */
+/* 拡大したときに形をはみ出さないようにoverflowを設定 */
+.sitecontents .linkimage {
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5%;
+    overflow: hidden;       
+}
+
+/* 写真内の文字とアイコンを設定 */
+.sitecontents .linkimage p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    top: 30%;
+    left: 10%;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.sitecontents .linkimage p .fab {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+.sitecontents .linkimage p .fas {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+.sitecontents .linkimage p .far {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 3em;
+    color: rgba(172, 168, 168, 0.7);
+}
+
+.sitecontents .linkimage .caption {
+	font-size:		130%;
+	color:			#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    text-shadow: 1px 2px 3px #333;
+}
+
+.sitecontents .linkimage .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;
+	top:			0;
+	left:			0;
+	opacity:		0;
+	background-color:	rgba(255, 255, 255, 0.801);
+	/* -webkit-transition:	all 0.6s ease; */
+	transition:		all 0.6s ease;
+}
+
+/* 画像がマウスホバー状態の時 */
+.sitecontents .linkimage:hover img {
+    transform: scale(1.2) rotate(3deg);
+    transition-duration: 0.5s;
+}
+
+/* 画像マウスホバー状態のマスク画像のアクション */
+.sitecontents .linkimage .mask:hover {
+    opacity: 1;
+}
+
+/* ul要素を中央揃え */
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* アニメーションを定義 */
+/* 上から文字が出てくるアニメーション */
+@keyframes ShowTextFromTop {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* 下から文字が出てくるアニメーション */
+@keyframes ShowTextFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+/* ローワーサード */
+@keyframes ShowTextLowerThird {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
+/* スクロール禁止 */
+@keyframes DisableScroll {
+    from {
+        overflow: hidden;
+    }
+    to {
+        overflow: auto;
+    }
+}
+
+
+
+/* 大きなタイトルに対して動きを設定 */
+.groupname span:nth-of-type(odd) {
+    display: inline-block;
+    animation: ShowTextFromTop cubic-bezier(0.26, 0.93, 1, 1) .3s backwards;
+}
+.groupname span:nth-of-type(even) {
+    display: inline-block;
+    animation: ShowTextFromBottom cubic-bezier(0.26, 0.93, 1, 1) .3s backwards;
+}
+/* 小さなタイトルに対して動きを設定 */
+.presentedby span {
+    display: inline-block;
+}
+.presentedby > span {
+    overflow: hidden;
+}
+.presentedby > span > span {
+    animation: ShowTextLowerThird cubic-bezier(0.29, 0.92, 0.33, 0.95) 1s backwards;
+}
