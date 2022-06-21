@@ -136,13 +136,37 @@ h4 {
 /* 箇条書きに使うタグulの黒丸を消す */
 ul {
     list-style: none;   /* 箇条書きに使うタグulの黒丸を消す */
+    width: 100%;
     display: flex;      /* flexを使うと横並びになる */
+}
+
+/* li {
+    width: 100%;
+} */
+
+/* 表示される画像の幅が小さいとき(スマホなど)は縦に並べる */
+/* このような仕様をメディアクエリという */
+@media screen and (max-width: 768px) {
+    /* 画像を縦並びにする */
+    ul {
+        display: block;
+    }
+    /* 縦並びに↓画像を画面中央ぞろえにする */
+    li {
+        display: block;
+        text-align: center;
+    }
+    /* block内のテキストを中央ぞろえするにはtext-align：center */
+    /* 画像を中央ぞろえにするには対象のimgに対してmargin 0px autoにすればよいらしい */
+    li img {
+        margin: 0px auto;
+    }
 }
 
 /* メンバーズに表示する画像 */
 .mens img {
     display: flex;
-    width: 100%;
+    width: 30vw;
     height: auto;
     /* margin-left: 10%; */
     filter: drop-shadow(0 0 1vw rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
@@ -173,14 +197,13 @@ figcaption.hover-mask {
     font-size: 2vw;
     }
 figure.hover-parent:hover .hover-mask {
-    opacity: 0.6;
+    opacity: 0.5;
     transition:all 0.6s ease;
     }
 /* # 画像の下に配置する名前のテキスト */
 .mens p {
     text-align: center; /* テキストを中央に配置 */
-    /* margin-left: 10%; */
-    margin-top: 5%;
+    margin-top: 2vw;
     font-size: 2vw;
 }
 
@@ -191,53 +214,16 @@ figure.hover-parent:hover .hover-mask {
     height: 5vw;
 }
 
-/* ナビゲーションのポジションを絶対にして重ねる */
-/* nav {
-    position: absolute;
-    z-index: 3;
-} */
 
-
-/* ナビゲーションの詳細を設定する */
-/* header nav .nav_menue {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 70px;
-    width: 100%;
-    padding-left: 10px;
-    font-size: 25px;
-    transform: translateY(-100%);
-    visibility: hidden;
-    opacity: 0;
-    transition: .5s;
-} */
-
-/* ナビゲーションのクラスが追加されたら時の設定 = スクロール時の設定 */
-/* header nav .active {
-    opacity: .6;
-    visibility: visible;
-    transform: none;
-    box-shadow: 0 2px 2px #ccc;
-    background-color: #fff;
-} */
-
-/* header nav a {
-    color: #333;
-} */
-
-li {
+/* li {
     margin-right: 25px;
-}
+} */
 /* aタグで色を設定するとリンクによる強制デコレーションでのカラー変更を無視することができる */
 /* text-decorationで下線部を消す */
-a {
+/* a {
     color: #fff;
     text-decoration: none;
-}
+} */
 
 
 
@@ -248,59 +234,6 @@ a {
     height: 100vh;
     width: 100%;
 }
-
-/* imgの大きさをいい具合に調整 */
-/* トランジション時間を設定 */
-/* vertical-aligntopで下の隙間をなくした */
-/* img {
-    width: 40vh;
-    height: auto;
-    transition-duration: 0.5s;
-    vertical-align:top;
-} */
-
-/* アニメーションを定義 */
-/* 上から文字が出てくるアニメーション */
-/* @keyframes ShowTextFromTop {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-} */
-/* 下から文字が出てくるアニメーション */
-/* @keyframes ShowTextFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-} */
-/* ローワーサード */
-/* @keyframes ShowTextLowerThird {
-    from {
-        transform: translateY(100%);
-    }
-    to {
-        transform: translateY(0px);
-    }
-} */
-/* スクロール禁止 */
-/* @keyframes DisableScroll {
-    from {
-        overflow: hidden;
-    }
-    to {
-        overflow: auto;
-    }
-} */
-
 
 
 
