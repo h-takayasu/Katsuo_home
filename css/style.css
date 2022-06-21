@@ -140,6 +140,14 @@ ul {
     display: flex;      /* flexを使うと横並びになる */
 }
 
+/* メンバーズに表示する画像 */
+.mens img {
+    display: flex;
+    width: 30vw;
+    height: auto;
+    /* margin-left: 10%; */
+    filter: drop-shadow(0 0 1vw rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
+}
 /* li {
     width: 100%;
 } */
@@ -161,16 +169,12 @@ ul {
     li img {
         margin: 0px auto;
     }
+    .mens img {
+        width: 70vw;
+    }
 }
 
-/* メンバーズに表示する画像 */
-.mens img {
-    display: flex;
-    width: 30vw;
-    height: auto;
-    /* margin-left: 10%; */
-    filter: drop-shadow(0 0 1vw rgb(136, 136, 136)); /* drop-shadowは実際の画像に対して影をつける */
-}
+
 figure.hover-parent {
     width: 100%;
     height: auto;
@@ -451,7 +455,6 @@ footer .left_contents {
 /* 既存の要素の右に重ならないように配置する */
 footer .bottom_text{
     color: rgb(212, 212, 212);
-    padding: 1em;
     width: 50%;
     /* 左端に配置 */
     text-align: left;
