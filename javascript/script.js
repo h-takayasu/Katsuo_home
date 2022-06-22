@@ -74,7 +74,7 @@ document.addEventListener('scroll',function(){
     const scrollY = window.pageYOffset;
     console.log("現在のスクロール位置"+scrollY)
     // 現在の画面後半の位置を取得する
-    const Class_List = document.getElementsByClassName('easing')
+    let Class_List = document.getElementsByClassName('easing')
     for (let i = 0;i<Class_List.length;i++) {
         const scrollUnderpage = Class_List[i].getBoundingClientRect().top
         console.log("要素への距離" + scrollUnderpage)
@@ -84,6 +84,17 @@ document.addEventListener('scroll',function(){
             Class_List[i].classList.remove('-visible');
         }
     }
+    Class_List = document.getElementsByClassName('under-easing')
+    for (let i = 0;i<Class_List.length;i++) {
+        const scrollUnderpage = Class_List[i].getBoundingClientRect().top
+        console.log("要素への距離" + scrollUnderpage)
+        if (scrollUnderpage - scrollY < 600) {
+            Class_List[i].classList.add('-visible');
+        } else {
+            Class_List[i].classList.remove('-visible');
+        }
+    }
+
     // 少しでも下にスクロールすれば
     // if (scrollY > 600) {
     //     document.getElementsByClassName('block-contents').classList.add('active');

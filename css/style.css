@@ -121,6 +121,17 @@ h2 {
     transform: translate(0, 0);
 }
 
+.under-easing {
+    opacity: 0;
+    /* transform: translate(0, 105%); */
+    transition: all 1s;
+}
+
+.under-easing.-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
 h3 {
     font-size: 2vw;
     font-weight: bold;
@@ -145,6 +156,8 @@ h4 span {
     position: relative;
     background: linear-gradient(transparent 40%, yellow 40%);
 }
+
+
 
 /* 要素を横並びに */
 .contentsimages {
@@ -238,7 +251,7 @@ figcaption.hover-mask {
     font-size: 2vw;
     }
 figure.hover-parent:hover .hover-mask {
-    opacity: 0.5;
+    opacity: 0.7;
     transition:all 0.6s ease;
     }
 /* # 画像の下に配置する名前のテキスト */
@@ -515,22 +528,6 @@ footer .bottom_text{
 section{
   padding:300px 0;
 }
-
-/* h2 .easing {
-  display: flex;
-  overflow: hidden;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-.easing span {
-    transform: translate(0, 105%);
-    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
-}
-
-.easing.-visible span {
-    transform: translate(0, 0);
-} */
-
 
 
 
