@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+div {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
