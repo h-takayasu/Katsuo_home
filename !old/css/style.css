@@ -12,6 +12,7 @@
 /* スクロール禁止時間を設定 */
 body {
     font-family: 'Roboto', 'M PLUS 1p', sans-serif;
+    /* font-size: 100vw; */
     /* animation: DisableScroll .1s linear 2.8s both; */
 }
 
