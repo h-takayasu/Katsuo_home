@@ -17,9 +17,28 @@ document.addEventListener("DOMContentLoaded", function() {
         
         console.log("Share URL:", shareUrl);
         // ここに他のシェア機能（例：SNSへのシェア）を追加することもできます。
+        copyToCripbord(shareUrl)
     });
 });
 
+function copyToCripbord(url) {
+    document.getElementById('copyButton').addEventListener('click', function() {
+        // 一時的なテキストエリアを作成して、そこにURLを入力
+        const textarea = document.createElement('textarea');
+        textarea.textContent = url;
+        textarea.style.position = 'fixed';  // ユーザーに表示させない
+        document.body.appendChild(textarea);
+    
+        // テキストエリアの内容を選択してクリップボードにコピー
+        textarea.select();
+        document.execCommand('copy');
+    
+        // 一時的なテキストエリアを削除
+        document.body.removeChild(textarea);
+    
+        alert('URLがクリップボードにコピーされました。');
+    });    
+}
 
 // // URLからアニメーション名を取得して、選択されたアニメーションを再生
 // function playSelectedAnimation() {
