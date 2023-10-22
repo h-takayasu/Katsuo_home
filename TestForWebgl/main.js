@@ -11,7 +11,7 @@ let scene, camera, renderer, mixer, actions = {};
 let lastTime;
 // 2023-10-22 10:39:16 lastTime変数定義 END
 // 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
-let activeAnimationName = "kedaruge"; // 初期アニメーション名
+window.activeAnimationName = "kedaruge";
 // 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
 
 // イベントリスナの追加: IDがkedarugeBUttonのHTML要素がクリックされた時に実行する関数を指定
