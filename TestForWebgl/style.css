@@ -1,18 +1,32 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 垂直方向に要素を並べる */
+    justify-content: space-between; /* 上部と下部に要素を配置する */
     height: 100vh;
     background-color: #f4f4f4;
+    padding: 20px; /* 全体的な余白を追加 */
 }
 
-div {
-    margin-bottom: 20px;  /* この行を追加 */
+/* 3DCG領域を表す要素を作成 (こちらはダミーで、実際の3DCGのサイズや位置に合わせて調整が必要) */
+#cgArea {
+    flex: 1; /* 余ったスペースを全て取る */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dashed #ccc; /* どこに3DCGが表示されるかが分かるようにするための一時的なボーダー */
+    margin-bottom: 20px; /* 下部のボタンやスライダーとの間に余白を持たせる */
+}
+
+div.controls {
+    display: flex;
+    flex-direction: column; /* コントロールを縦に並べる */
+    align-items: center;
+    gap: 20px; /* 各コントロール要素間のスペース */
 }
 
 button {
-    margin-right: 10px; /* この行を追加 */
+    margin-right: 10px;
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
@@ -33,5 +47,5 @@ label {
 }
 
 input[type="range"] {
-    width: 200px; /* スライダーの幅を調節する */
+    width: 200px;
 }
