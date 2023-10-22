@@ -9,22 +9,21 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 // シェアボタンがクリックされたときの処理
+// share.js
 document.addEventListener("DOMContentLoaded", function() {
-    const shareButton = document.getElementById("shareButton");
+    // シェアボタンがクリックされたときの処理
+    document.getElementById("shareButton").addEventListener("click", function() {
+        const currentUrl = window.location.href.split('?')[0]; // クエリストリングを除いた現在のURL
+        const selectedAnimation = "kedaruge"; // 仮のアニメーション名
+        const shareUrl = `${currentUrl}?animation=${selectedAnimation}`;
+        
+        // シェア用のURLをコンソールに表示 (後でこの部分を修正します)
+        console.log("Share URL:", shareUrl);
 
-    if (shareButton) {
-        shareButton.addEventListener("click", function() {
-            const currentUrl = window.location.href.split('?')[0]; // クエリストリングを除いた現在のURL
-            const selectedAnimation = document.getElementById("animationSelect").value; // ドロップダウンメニューから選択されたアニメーション名
-            const shareUrl = `${currentUrl}?animation=${selectedAnimation}`;
-
-            // シェア用のURLをテキストボックスに表示
-            document.getElementById("shareLink").value = shareUrl;
-
-            // ここに他のシェア機能（例：SNSへのシェア）を追加することもできます。
-        });
-    }
+        // ここに他のシェア機能（例：SNSへのシェア）を追加することもできます。
+    });
 });
+
 
 
 // // URLからアニメーション名を取得して、選択されたアニメーションを再生
