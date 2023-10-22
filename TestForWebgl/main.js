@@ -10,6 +10,9 @@ let scene, camera, renderer, mixer, actions = {};
 // 2023-10-22 10:39:16 lastTime変数定義 STR
 let lastTime;
 // 2023-10-22 10:39:16 lastTime変数定義 END
+// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
+let activeAnimationName = "kedaruge"; // 初期アニメーション名
+// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
 
 // イベントリスナの追加: IDがkedarugeBUttonのHTML要素がクリックされた時に実行する関数を指定
 // イベントリスナとは要するに特定の動作に反応してこちらからアクションさせるもの
@@ -155,4 +158,7 @@ function playAnimation(name) {
         actions[actionName].stop();
     }
     actions[name].play();
+    // 2023-10-22 13:35:42 アニメーションタイトルを取得
+    activeAnimationName = name;
+    // 2023-10-22 13:35:42 アニメーションタイトルを取得
 }
