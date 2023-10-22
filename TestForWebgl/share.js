@@ -9,16 +9,23 @@ function getParameterByName(name, url = window.location.href) {
 }
 
 // シェアボタンがクリックされたときの処理
-document.getElementById("shareButton").addEventListener("click", function() {
-    const currentUrl = window.location.href.split('?')[0]; // クエリストリングを除いた現在のURL
-    const selectedAnimation = document.getElementById("animationSelect").value; // ドロップダウンメニューから選択されたアニメーション名
-    const shareUrl = `${currentUrl}?animation=${selectedAnimation}`;
-    
-    // シェア用のURLをテキストボックスに表示
-    document.getElementById("shareLink").value = shareUrl;
+document.addEventListener("DOMContentLoaded", function() {
+    const shareButton = document.getElementById("shareButton");
 
-    // ここに他のシェア機能（例：SNSへのシェア）を追加することもできます。
+    if (shareButton) {
+        shareButton.addEventListener("click", function() {
+            const currentUrl = window.location.href.split('?')[0]; // クエリストリングを除いた現在のURL
+            const selectedAnimation = document.getElementById("animationSelect").value; // ドロップダウンメニューから選択されたアニメーション名
+            const shareUrl = `${currentUrl}?animation=${selectedAnimation}`;
+
+            // シェア用のURLをテキストボックスに表示
+            document.getElementById("shareLink").value = shareUrl;
+
+            // ここに他のシェア機能（例：SNSへのシェア）を追加することもできます。
+        });
+    }
 });
+
 
 // // URLからアニメーション名を取得して、選択されたアニメーションを再生
 // function playSelectedAnimation() {
