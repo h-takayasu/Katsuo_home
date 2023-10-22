@@ -3,6 +3,9 @@ import { OrbitControls } from './three.js-master/examples/jsm/controls/OrbitCont
 import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js';
 
 let scene, camera, renderer, mixer, actions = {};
+// 2023-10-22 10:39:16 lastTime変数定義 STR
+let lastTime;
+// 2023-10-22 10:39:16 lastTime変数定義 END
 
 document.getElementById('kedarugeButton').addEventListener('click', () => playAnimation('kedaruge'));
 document.getElementById('panchButton').addEventListener('click', () => playAnimation('panch.001'));
@@ -47,6 +50,10 @@ function init() {
 
         actions['kedaruge'].play();
     });
+    // 2023-10-22 10:40:16 lastTimeの代入 STR
+    lastTime = Date.now();
+    animate();  // animateの呼び出しをinitの終わりに移動    
+    // 2023-10-22 10:40:16 lastTimeの代入 STR
 }
 
 // 2023-10-22 10:31:36 function animateを編集 STR
@@ -56,7 +63,7 @@ function init() {
 //     renderer.render(scene, camera);
 // }
 
-let lastTime = Date.now();
+// let lastTime = Date.now();
 
 function animate() {
     const currentTime = Date.now();
