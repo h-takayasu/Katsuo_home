@@ -18,7 +18,7 @@ document.getElementById('panchButton').addEventListener('click', () => playAnima
 // 2023-10-22 10:31:59 速度制御のイベントリスナを追加 STR
 // eventで入力数値の詳細を受け取る
 // javascriptの場合はif文の中かっこが不要なため(mixerが存在すれば)mixerltimeScaleにspeed(スライダに入力した速度)を代入する
-parseFloatで入力数値の返還を行う
+// parseFloatで入力数値の変換を行う
 document.getElementById('speedControl').addEventListener('input', (event) => {
     const speed = parseFloat(event.target.value);
     if (mixer) mixer.timeScale = speed;
