@@ -6,7 +6,12 @@ let scene, camera, renderer, mixer, actions = {};
 
 document.getElementById('kedarugeButton').addEventListener('click', () => playAnimation('kedaruge'));
 document.getElementById('panchButton').addEventListener('click', () => playAnimation('panch.001'));
-
+// 2023-10-22 10:31:59 速度制御のイベントリスナを追加 STR
+document.getElementById('speedControl').addEventListener('input', (event) => {
+    const speed = parseFloat(event.target.value);
+    if (mixer) mixer.timeScale = speed;
+});
+// 2023-10-22 10:32:18 速度制御のイベントリスナを追加 END
 init();
 animate();
 
@@ -44,11 +49,29 @@ function init() {
     });
 }
 
+// 2023-10-22 10:31:36 function animateを編集 STR
+// function animate() {
+//     requestAnimationFrame(animate);
+//     if (mixer) mixer.update(0.01);
+//     renderer.render(scene, camera);
+// }
+
+let lastTime = Date.now();
+
 function animate() {
+    const currentTime = Date.now();
+    const deltaTime = (currentTime - lastTime) / 1000;  // seconds
+    lastTime = currentTime;
+
     requestAnimationFrame(animate);
-    if (mixer) mixer.update(0.01);
+
+    // アニメーションの更新
+    if (mixer) mixer.update(deltaTime);
+
     renderer.render(scene, camera);
 }
+
+// 2023-10-22 10:31:27 function animateを編集 END
 
 function playAnimation(name) {
     for (let actionName in actions) {
