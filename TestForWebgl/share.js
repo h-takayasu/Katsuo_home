@@ -22,22 +22,20 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function copyToCripbord(url) {
-    document.getElementById('copyButton').addEventListener('click', function() {
-        // 一時的なテキストエリアを作成して、そこにURLを入力
-        const textarea = document.createElement('textarea');
-        textarea.textContent = url;
-        textarea.style.position = 'fixed';  // ユーザーに表示させない
-        document.body.appendChild(textarea);
-    
-        // テキストエリアの内容を選択してクリップボードにコピー
-        textarea.select();
-        document.execCommand('copy');
-    
-        // 一時的なテキストエリアを削除
-        document.body.removeChild(textarea);
-    
-        alert('URLがクリップボードにコピーされました。');
-    });    
+    // 一時的なテキストエリアを作成して、そこにURLを入力
+    const textarea = document.createElement('textarea');
+    textarea.textContent = url;
+    textarea.style.position = 'fixed';  // ユーザーに表示させない
+    document.body.appendChild(textarea);
+
+    // テキストエリアの内容を選択してクリップボードにコピー
+    textarea.select();
+    document.execCommand('copy');
+
+    // 一時的なテキストエリアを削除
+    document.body.removeChild(textarea);
+
+    alert('URLがクリップボードにコピーされました。');
 }
 
 // // URLからアニメーション名を取得して、選択されたアニメーションを再生
