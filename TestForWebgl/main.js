@@ -16,7 +16,9 @@ document.getElementById('speedControl').addEventListener('input', (event) => {
 });
 // 2023-10-22 10:32:18 速度制御のイベントリスナを追加 END
 init();
-animate();
+// 2023-10-22 10:43:46 animate非有効化 STR
+// animate();
+// 2023-10-22 10:43:46 animate非有効化 STR
 
 function init() {
     scene = new THREE.Scene();
