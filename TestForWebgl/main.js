@@ -130,14 +130,12 @@ function init() {
         scene.add(model);
 
         // 2023-10-23 20:26:08 アニメーションブレンド STR
-        // MorphBlendMeshを作成し、ブレンドするためのアニメーションクリップを登録
-        blendMesh = new THREE.MorphBlendMesh(model.geometry, model.material);
-        scene.add(blendMesh);
-        
+        // アニメーション制御ができるミキサーを定義
+        mixer = new THREE.AnimationMixer(model);
         gltf.animations.forEach((clip) => {
-            blendMesh.addAnimation(clip, clip.duration);
+            actions[clip.name] = mixer.clipAction(clip);
             if(clip.name === animationName) {
-                blendMesh.playAnimation(clip.name, 0.1);
+                actions[clip.name].play();
             }
         });
         // 2023-10-23 20:26:08 アニメーションブレンド END
