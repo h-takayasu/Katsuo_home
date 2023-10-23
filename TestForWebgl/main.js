@@ -1,3 +1,5 @@
+// ************************ ライブラリインポートエリア ************************
+
 // THREE.js の基本ライブラリインポート
 import * as THREE from './three.js-master/build/three.module.js';
 // カメラ制御などを制御するorbitcontrolsをインポート
@@ -5,14 +7,24 @@ import { OrbitControls } from './three.js-master/examples/jsm/controls/OrbitCont
 // GLTF形式のファイルリードを行うクラス: GLTFLoaderをインポート
 import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js';
 
+// ************************ ライブラリインポートエリア ************************
+
+// ************************ 変数宣言エリア ************************
+
 // letはjavascriptにおける変数宣言(dimのようなもの)
 let scene, camera, renderer, mixer, actions = {};
 // 2023-10-22 10:39:16 lastTime変数定義 STR
 let lastTime;
 // 2023-10-22 10:39:16 lastTime変数定義 END
-// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
+// 2023-10-23 20:25:12 アニメーションブレンド STR
+// MorphBlendMeshを初期化するための変数を追加
+let blendMesh;
+// 2023-10-23 20:25:12 アニメーションブレンド END
+// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数 STR
 window.activeAnimationName = "kedaruge";
-// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数
+// 2023-10-22 13:34:07 アニメーションをURLから取得するための変数 END
+
+// ************************ 変数宣言エリア ************************
 
 // イベントリスナの追加: IDがkedarugeBUttonのHTML要素がクリックされた時に実行する関数を指定
 // イベントリスナとは要するに特定の動作に反応してこちらからアクションさせるもの
@@ -82,6 +94,27 @@ function init() {
 
     // GLTFファイル（アニメーション情報をもてる3DCGファイル）を読み込むGLTFローダーを定義
     const loader = new GLTFLoader();
+
+    // URLのクエリストリングからパラメータを取得する関数
+    // URLから取得するパラメータ名を第一引数として取得する
+    // window.location.hrefで現在のURLを取得
+    function getParameterByName(name, url = window.location.href) {
+        // エスケープ対象の文字列を置換して扱えるようにする
+        name = name.replace(/[\[\]]/g, '\\$&');
+        // 正規表現を作成して文字列探索で使いやすくする
+        // urlから指定されたパラメータを探す
+        // nullもしくはブランクであれば何も返さない
+        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        // decodeURIComponentでエンコード
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // アニメーション名を取得
+    const animationName = getParameterByName('animation');
+
     // 指定したパスのファイルを読み込む
     // 読み込みに成功したら(gltf)以降の処理が始まる
     // cosoleに読み込みが完了しているか確認するためのメッセージを定義
@@ -91,24 +124,23 @@ function init() {
     // gltf.animations.forEach()でモデルのアニメーション情報を一つ一つ取り出して処理をしている
     // アニメーション情報をactionsに渡す
     // アクションをプレイ
-
-    // URLのクエリストリングからパラメータを取得する関数
-    function getParameterByName(name, url = window.location.href) {
-        name = name.replace(/[\[\]]/g, '\\$&');
-        const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-            results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    // アニメーション名を取得
-    const animationName = getParameterByName('animation');
-
     loader.load('../asset/models/soleil-san_for_Website.glb', (gltf) => {
         console.log("Model loaded successfully");
         const model = gltf.scene;
         scene.add(model);
+
+        // 2023-10-23 20:26:08 アニメーションブレンド STR
+        // MorphBlendMeshを作成し、ブレンドするためのアニメーションクリップを登録
+        blendMesh = new THREE.MorphBlendMesh(model.geometry, model.material);
+        scene.add(blendMesh);
+        
+        gltf.animations.forEach((clip) => {
+            blendMesh.addAnimation(clip, clip.duration);
+            if(clip.name === animationName) {
+                blendMesh.playAnimation(clip.name, 0.1);
+            }
+        });
+        // 2023-10-23 20:26:08 アニメーションブレンド END
 
         mixer = new THREE.AnimationMixer(model);
         gltf.animations.forEach((clip) => {
@@ -143,22 +175,43 @@ function animate() {
     const deltaTime = (currentTime - lastTime) / 1000;  // seconds
     lastTime = currentTime;
 
+    // animate関数をループさせてアニメーションをループさせる
     requestAnimationFrame(animate);
 
     // アニメーションの更新
+    // deltaTimeは処理速度やブラウザの状態に依存せずアニメーションの動きを一定に保つために利用する
     if (mixer) mixer.update(deltaTime);
-
+    // 画面描写処理
     renderer.render(scene, camera);
 }
 
+// 2023-10-23 20:27:09 アニメーションブレンド STR
 // 2023-10-22 10:31:27 function animateを編集 END
-
+// ユーザがボタンを押したとき対応するアクションを引数として受け取り該当するアニメーションをプレイ
+// function playAnimation(name) {
+//     for (let actionName in actions) {
+//         actions[actionName].stop();
+//     }
+//     actions[name].play();
+//     // 2023-10-22 13:35:42 アニメーションタイトルを取得
+//     activeAnimationName = name;
+//     // 2023-10-22 13:35:42 アニメーションタイトルを取得
+// }
 function playAnimation(name) {
-    for (let actionName in actions) {
-        actions[actionName].stop();
+    if (actions[name]) {
+        const action = actions[name];
+
+        // 他のアクションを停止
+        for (const key in actions) {
+            if (actions[key] !== action) {
+                actions[key].stop();
+            }
+        }
+
+        // アクションを再生
+        action.reset();
+        action.play();
     }
-    actions[name].play();
-    // 2023-10-22 13:35:42 アニメーションタイトルを取得
-    activeAnimationName = name;
-    // 2023-10-22 13:35:42 アニメーションタイトルを取得
 }
+// 2023-10-23 20:27:09 アニメーションブレンド END
+
