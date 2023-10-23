@@ -183,6 +183,22 @@ function animate() {
     renderer.render(scene, camera);
 }
 
+// アニメーションのクロスフェード
+function crossfade(fromAction, toAction) {
+    const duration = 0.5;  // この値を調整して、クロスフェードの速度を変更できます
+
+    if (fromAction === toAction) return;
+
+    // フェードアウトするアニメーションを設定
+    fromAction.fadeOut(duration);
+
+    // フェードインするアニメーションを設定
+    toAction.reset();
+    toAction.fadeIn(duration);
+    toAction.play();
+}
+
+
 // 2023-10-23 20:27:09 アニメーションブレンド STR
 // 2023-10-22 10:31:27 function animateを編集 END
 // ユーザがボタンを押したとき対応するアクションを引数として受け取り該当するアニメーションをプレイ
@@ -199,17 +215,18 @@ function playAnimation(name) {
     if (actions[name]) {
         const action = actions[name];
 
-        // 他のアクションを停止
-        for (const key in actions) {
-            if (actions[key] !== action) {
-                actions[key].stop();
-            }
-        }
+        // 現在再生中のアクションを取得
+        let activeAction = mixer.getAction();
 
-        // アクションを再生
-        action.reset();
-        action.play();
+        if (activeAction) {
+            // アクションをクロスフェードで切り替え
+            crossfade(activeAction, action);
+        } else {
+            // 最初のアクションを直接再生
+            action.play();
+        }
     }
 }
+
 // 2023-10-23 20:27:09 アニメーションブレンド END
 
