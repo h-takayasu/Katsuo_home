@@ -213,20 +213,21 @@ function crossfade(fromAction, toAction) {
 // }
 function playAnimation(name) {
     if (actions[name]) {
-        const action = actions[name];
-
-        // 現在再生中のアクションを取得
-        let activeAction = mixer.getAction();
-
-        if (activeAction) {
-            // アクションをクロスフェードで切り替え
-            crossfade(activeAction, action);
-        } else {
-            // 最初のアクションを直接再生
-            action.play();
+        // すべてのアクションをフェードアウト
+        for (const key in actions) {
+            if (actions[key].isRunning()) {
+                actions[key].fadeOut(0.5);  // 0.5秒かけてフェードアウト
+            }
         }
+
+        // 指定されたアクションを再生
+        const action = actions[name];
+        action.reset();
+        action.fadeIn(0.5);  // 0.5秒かけてフェードイン
+        action.play();
     }
 }
+
 
 // 2023-10-23 20:27:09 アニメーションブレンド END
 
