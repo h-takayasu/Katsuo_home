@@ -38,18 +38,3 @@ function copyToCripbord(url) {
     alert('URLがクリップボードにコピーされました。');
 }
 
-// // URLからアニメーション名を取得して、選択されたアニメーションを再生
-// function playSelectedAnimation() {
-//     const animationName = getParameterByName('animation');
-    
-//     // actions[animationName].play(); のようにアニメーションを再生するコードを呼び出す
-
-//     if (actions[animationName]) {
-//         actions[animationName].play();
-//     } else {
-//         // デフォルトのアニメーションやエラーメッセージなどの処理をここに書く
-//     }
-// }
-
-// // ページロード時に選択されたアニメーションを再生
-// playSelectedAnimation();

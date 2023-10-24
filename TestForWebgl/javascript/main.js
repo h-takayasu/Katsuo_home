@@ -1,11 +1,11 @@
 // ************************ ライブラリインポートエリア ************************
 
 // THREE.js の基本ライブラリインポート
-import * as THREE from './three.js-master/build/three.module.js';
+import * as THREE from '../asset/three.js-master/build/three.module.js';
 // カメラ制御などを制御するorbitcontrolsをインポート
-import { OrbitControls } from './three.js-master/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from '../asset/three.js-master/examples/jsm/controls/OrbitControls.js';
 // GLTF形式のファイルリードを行うクラス: GLTFLoaderをインポート
-import { GLTFLoader } from './three.js-master/examples/jsm/loaders/GLTFLoader.js';
+import { GLTFLoader } from '../asset/three.js-master/examples/jsm/loaders/GLTFLoader.js';
 
 // ************************ ライブラリインポートエリア ************************
 
