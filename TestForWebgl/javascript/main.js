@@ -124,7 +124,7 @@ function init() {
     // gltf.animations.forEach()でモデルのアニメーション情報を一つ一つ取り出して処理をしている
     // アニメーション情報をactionsに渡す
     // アクションをプレイ
-    loader.load('../asset/models/mackerel_v0.01.glb', (gltf) => {
+    loader.load('../asset/models/sample_boy_v0.01.glb', (gltf) => {
         console.log("Model loaded successfully");
         const model = gltf.scene;
         scene.add(model);
